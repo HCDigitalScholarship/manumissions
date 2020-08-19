@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Manumission List</h1>
+
+{% if manumission_list %}
+  <ul>
+
+  {% for manumission in manumission_list %}
+    <li>
+      <a href="{{ manumission.get_absolute_url }}">
+      {{ manumission }} ({{manumission.monthly_meeting}})
+      </a>
+    </li>
+  {% endfor %}
+
+  </ul>
+  
+{% else %}
+  <p>There are no Manumissions in the library.</p>
+{% endif %}
+
+
+{% endblock %}

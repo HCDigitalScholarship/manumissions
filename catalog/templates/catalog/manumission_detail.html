@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Manumission: {{ manumission }} </h1>
+<ul>
+  <li>Monthly Meeting: {{manumission.monthly_meeting}}</li>
+  <li>Date of Manumission Signing: {{manumission.date_of_manumission_signing}}</li>
+  <li>Monthly Meeting: {{manumission.monthly_meeting}}</li>
+  <li>Physical Page Number: {{manumission.page_number}}</li>  
+  <li>Call Number: {{manumission.call_number}}</li>  
+  <li>Digital Image Name: {{manumission.image_name}}</li> 
+</ul>
+
+<div style="margin-left:20px;margin-top:20px">
+<h4>Persons</h4>
+    
+<dl>
+  {% for person in manumission.person_set.all %}
+    <dt><a href="{% url 'person-detail' person.pk %}">{{person}}</a></dt>
+      <dd>{{person.role}}, </dd>
+    {% endfor %}
+  </dl>
+    
+</div>
+
+<!-- <p><strong>Persons:</strong> <a href="{% url 'person-detail' manumission.person.pk %}">{{ manumission.person }}</a></p> -->
+
+{% endblock %}

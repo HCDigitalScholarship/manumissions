@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Haverford's Manumissions Collection Home</h1>
+
+  <p>Welcome to Haverford College's Manumissions Site, a website developed by <em>index.html</em>!</p>
+  <h2>Dynamic content</h2>
+  
+  <p>The Website has the following record counts:</p>
+  <ul>
+    <li><strong>Manumissions:</strong> {{ num_manumissions }}</li>
+    <li><strong>Roles:</strong> {{ num_roles }}</li>
+    <li><strong>Persons:</strong> {{ num_persons }}</li>
+    <li><strong>Images:</strong> {{ num_image_names }}</li>
+    <li><strong>Birth Places:</strong> {{ num_birth_places }}</li>
+    <li><strong>Death Places:</strong> {{ num_death_places }}</li>
+    <li><strong>Ages Listed at time of manumission signing:</strong> {{ num_age_listeds }}</li>
+    <li><strong>Ages at time freed:</strong> {{ num_age_freeds }}</li>
+    <li><strong>Years Manumissions/Freedom Occured:</strong> {{ num_year_manumitteds }}</li>
+    <li><strong>Places Freed:</strong> {{ num_place_freeds }}</li>
+    <li><strong>Monthly Meetings:</strong> {{ num_monthly_meetings }}</li>
+    <li><strong>Collections:</strong> {{ num_call_numbers }}</li>
+    
+  </ul>
+
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+
+
+{% endblock %}

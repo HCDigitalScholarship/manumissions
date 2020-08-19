@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Person: {{ person }} </h1>
+<p>{{person.date_of_birth}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %}</p>
+<ul>
+  <li>Gender: {{person.gender}}</li>
+  <li>Year Manumitted: {{person.year_manumitted}}</li>
+  <li>Age Freed: {{person.age_freed}}</li>
+  <li>Age at time of Manumission Signing: {{person.age_listed}}</li>
+  <li>Place Freed: {{person.place_freed}}</li>
+  <li>Role(s): {{person.role}}
+</ul>
+
+<div style="margin-left:20px;margin-top:20px">
+<h4>Manumissions</h4>
+
+<dl>
+  {% for manumission in person.manumission_set.all %}
+    <dt><a href="{% url 'manumission-detail' manumission.pk %}">{{manumission}}</a></dt>
+    <ul>
+    <li>{{manumission.monthly_meeting}}</li>
+    <li>Date of Manumission Signing: {{manumission.date_of_manumission_signing}}</li>
+    <li>{{manumission.call_number}}</li>
+    <li>Persons involved: {{manumission.person}}</li>
+    </ul>
+  {% endfor %}
+  </dl>
+
+</div>
+{% endblock %}
