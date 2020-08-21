@@ -4,26 +4,23 @@
 
 <h1>Manumission: {{ manumission }} </h1>
 <ul>
-  <li>Monthly Meeting: {{manumission.monthly_meeting}}</li>
-  <li>Date of Manumission Signing: {{manumission.date_of_manumission_signing}}</li>
-  <li>Monthly Meeting: {{manumission.monthly_meeting}}</li>
-  <li>Physical Page Number: {{manumission.page_number}}</li>  
-  <li>Call Number: {{manumission.call_number}}</li>  
-  <li>Digital Image Name: {{manumission.image_name}}</li> 
+  <li><strong>Date of Manumission Signing:</strong> {{manumission.date_of_manumission_signing}}</li>
+  <li><strong>Monthly Meeting:</strong> {{manumission.monthly_meeting}}</li>
+  <li><strong>Physical Page Number:</strong> {{manumission.page_number}}</li>  
+  <li><strong>Call Number:</strong> {{manumission.call_number}}</li>  
+  <li><strong>Digital Image Name:</strong> {{manumission.image_name}}</li> 
 </ul>
 
 <div style="margin-left:20px;margin-top:20px">
 <h4>Persons</h4>
     
 <dl>
-  {% for person in manumission.person_set.all %}
+  {% for person in manumission.person.all %}
     <dt><a href="{% url 'person-detail' person.pk %}">{{person}}</a></dt>
-      <dd>{{person.role}}, </dd>
+      <dd><strong>Role(s):</strong> {% for role in person.role.all %} {% if not forloop.last %} {{role}}, {% else %} {{role}} {% endif %} {% endfor %} </dd>
     {% endfor %}
   </dl>
     
 </div>
-
-<!-- <p><strong>Persons:</strong> <a href="{% url 'person-detail' manumission.person.pk %}">{{ manumission.person }}</a></p> -->
 
 {% endblock %}

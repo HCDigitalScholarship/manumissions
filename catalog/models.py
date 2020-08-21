@@ -19,7 +19,7 @@ class Role(models.Model):
 class Person(models.Model):
     """Model representing Names listed in our manumission documents (e.g. )."""
     first_name = models.CharField(max_length=100, null=True)
-    last_name = models.CharField(max_length=100, null=True)
+    last_name = models.CharField(max_length=100, null=True, blank=True)
     alt_spelling_first_name = models.CharField(max_length=100, null=True, blank=True)
     alt_spelling_last_name = models.CharField(max_length=100, null=True, blank=True)
     abbreviated_first_name = models.CharField(max_length=100, null=True, blank=True)
@@ -34,8 +34,8 @@ class Person(models.Model):
     birth_place = models.ForeignKey('Birth_Place', on_delete=models.SET_NULL, null=True, blank=True)
     death_place = models.ForeignKey('Death_Place', on_delete=models.SET_NULL, null=True, blank=True)
     place_freed= models.ForeignKey('Place_Freed', on_delete=models.SET_NULL, null=True)
-    age_freed= models.CharField('Age_Freed', max_length=3, help_text='Age when freedom occured', blank=True)
-    age_listed= models.CharField('Age_Listed', max_length=3, help_text='Age listed on the Manumission Document', blank=True)
+    age_freed= models.CharField('Age_Freed', max_length=5, help_text='Age when freedom occured', blank=True)
+    age_listed= models.CharField('Age_Listed', max_length=5, help_text='Age listed on the Manumission Document', blank=True)
     year_manumitted= models.CharField('Year Manumission took effect', max_length=4, help_text='Year when freedom occured', blank=True)
 
     date_of_birth = models.DateField(null=True, blank=True)
@@ -74,7 +74,7 @@ class Manumission(models.Model):
 
     def display_person(self):
         """Create a string for the Person. This is required to display persons in Admin."""
-        return ', '.join(person.last_name for person in self.person.all()[:3])
+        return ', '.join(person.first_name for person in self.person.all()[:3])
     
     display_person.short_description = 'Persons involved in Manumission'
 

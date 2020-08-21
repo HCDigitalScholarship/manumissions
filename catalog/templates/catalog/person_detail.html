@@ -5,12 +5,13 @@
 <h1>Person: {{ person }} </h1>
 <p>{{person.date_of_birth}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %}</p>
 <ul>
-  <li>Gender: {{person.gender}}</li>
-  <li>Year Manumitted: {{person.year_manumitted}}</li>
-  <li>Age Freed: {{person.age_freed}}</li>
-  <li>Age at time of Manumission Signing: {{person.age_listed}}</li>
-  <li>Place Freed: {{person.place_freed}}</li>
-  <li>Role(s): {{person.role}}
+  <li><strong>Gender:</strong> {{person.gender}}</li>
+  <li><strong>Year Manumitted:</strong> {{person.year_manumitted}}</li>
+  <li><strong>Age Freed:</strong> {{person.age_freed}}</li>
+  <li><strong>Age at time of Manumission Signing:</strong> {{person.age_listed}}</li>
+  <li><strong>Place Freed:</strong> {{person.place_freed}}</li>
+  <li><strong>Role(s):</strong> {% for role in person.role.all %} {{role}} {% endfor %}</li>
+
 </ul>
 
 <div style="margin-left:20px;margin-top:20px">
@@ -20,11 +21,11 @@
   {% for manumission in person.manumission_set.all %}
     <dt><a href="{% url 'manumission-detail' manumission.pk %}">{{manumission}}</a></dt>
     <ul>
-    <li>{{manumission.monthly_meeting}}</li>
-    <li>Date of Manumission Signing: {{manumission.date_of_manumission_signing}}</li>
-    <li>{{manumission.call_number}}</li>
-    <li>Persons involved: {{manumission.person}}</li>
-    </ul>
+    <li><strong>Monthly Meeting:</strong> {{manumission.monthly_meeting}}</li>
+    <li><strong>Date of Manumission Signing:</strong> {{manumission.date_of_manumission_signing}}</li>
+    <li><strong>Call Number:</strong> {{manumission.call_number}}</li>
+    <li><strong>Persons involved:</strong> {% for person in manumission.person.all %} <br> {{person}} {% endfor %}</li>
+    </ul> 
   {% endfor %}
   </dl>
 
