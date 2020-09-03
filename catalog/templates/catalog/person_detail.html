@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<h1>Person: {{ person }} </h1>
-<p>{{person.date_of_birth}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %}</p>
+<h1>Person: {{ person.first_name }} {{person.last_name|default_if_none:" " }} </h1>
+<p>{{person.date_of_birth|default_if_none:"(unknown)"}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %}</p>
 <ul>
   <li><strong>Gender:</strong> {{person.gender}}</li>
   <li><strong>Year Manumitted:</strong> {{person.year_manumitted}}</li>
