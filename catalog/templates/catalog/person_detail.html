@@ -10,7 +10,7 @@
   <li><strong>Age Freed:</strong> {{person.age_freed}}</li>
   <li><strong>Age at time of Manumission Signing:</strong> {{person.age_listed}}</li>
   <li><strong>Place Freed:</strong> {{person.place_freed}}</li>
-  <li><strong>Role(s):</strong> {% for role in person.role.all %} {{role}} {% endfor %}</li>
+  <li><strong>Role(s):</strong> {% for role in person.role.all %} {% if not forloop.last %} {{role}}, {% else %} {{role}} {% endif %} {% endfor %}</li>
 
 </ul>
 

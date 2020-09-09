@@ -7,6 +7,8 @@ urlpatterns = [
     path('manumission/<int:pk>', views.ManumissionDetailView.as_view(), name='manumission-detail'),
     path('persons/', views.PersonListView.as_view(), name='persons'),
     path('person/<int:pk>', views.PersonDetailView.as_view(), name='person-detail'),
+    path('about', views.about, name='about'),
+    path('visualizations', views.visualizations, name='visualizations')
 ]
 
 urlpatterns += [  

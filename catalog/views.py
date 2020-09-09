@@ -4,6 +4,19 @@ from django.shortcuts import render
 
 from .models import Role, Image_name, Page_Number, Person, Manumission, Gender, Birth_Place, Death_Place, Age_Listed, Age_Freed, Year_Manumitted, Place_Freed, Monthly_Meeting, Call_Number
 
+def about(request):
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(
+        request, 
+        'about.html')
+
+
+def visualizations(request):
+    return render(
+        request,
+        'visualizations.html')
+
 def index(request):
     """View function for home page of site."""
     # Generate counts of some of the main objects
