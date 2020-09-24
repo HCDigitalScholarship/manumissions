@@ -16,7 +16,7 @@
     
 <dl>
   {% for person in manumission.person.all %}
-    <dt><a href="{% url 'person-detail' person.pk %}">{{person}}</a></dt>
+    <dt><a href="{% url 'person-detail' person.pk %}">{{person.last_name|default_if_none:" " }}, {{ person.first_name }}</a></dt>
       <dd><strong>Role(s):</strong> {% for role in person.role.all %} {% if not forloop.last %} {{role}}, {% else %} {{role}} {% endif %} {% endfor %} </dd>
     {% endfor %}
   </dl>

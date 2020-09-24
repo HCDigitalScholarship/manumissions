@@ -17,6 +17,11 @@ def visualizations(request):
         request,
         'visualizations.html')
 
+def glossary(request):
+    return render(
+        request,
+        'glossary.html')
+
 def index(request):
     """View function for home page of site."""
     # Generate counts of some of the main objects

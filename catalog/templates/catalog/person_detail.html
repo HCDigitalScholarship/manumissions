@@ -24,7 +24,7 @@
     <li><strong>Monthly Meeting:</strong> {{manumission.monthly_meeting}}</li>
     <li><strong>Date of Manumission Signing:</strong> {{manumission.date_of_manumission_signing}}</li>
     <li><strong>Call Number:</strong> {{manumission.call_number}}</li>
-    <li><strong>Persons involved:</strong> {% for person in manumission.person.all %} <br> {{person}} {% endfor %}</li>
+    <li><strong>Persons involved:</strong> {% for person in manumission.person.all %} <br> {{person.last_name|default_if_none:" " }}, {{ person.first_name }}  {% endfor %}</li>
     </ul> 
   {% endfor %}
   </dl>
