@@ -68,14 +68,14 @@ from django.views import generic
 
 class ManumissionListView(generic.ListView):
     model = Manumission
-    paginate_by = 10
+    paginate_by = 30
     
 class ManumissionDetailView(generic.DetailView):
     model = Manumission
 
 class PersonListView(generic.ListView):
     model = Person
-    paginate_by = 10
+    paginate_by = 30
 
 class PersonDetailView(generic.DetailView):
     model = Person

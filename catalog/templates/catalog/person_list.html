@@ -10,7 +10,7 @@
   {% for person in person_list %}
     <li>
       <a href="{{ person.get_absolute_url }}">
-      {{ person.first_name }} {{person.last_name|default_if_none:" " }} ({{person.date_of_birth|default_if_none:"unknown"}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %})
+      {{ person.first_name }} {{person.last_name|default_if_none:" " }}, {{person.date_of_birth|default_if_none:""}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %}
       </a>
     </li>
   {% endfor %}
