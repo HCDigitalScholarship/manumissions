@@ -2,24 +2,49 @@
 
 {% block content %}
 
-<h1>Manumission List</h1>
+<div class="col-md-12" style="background: rgb(49,53,58);color: rgb(33, 37, 30);">
+  <h1 class= "text-monospace text-center" style="color: #eae4cc;">Manumission List</h1>
+</div>
 
-{% if manumission_list %}
-  <ul>
+<div class="table-responsive" style="background: rgb(255,255,255);color: rgb(33,37,30);">
+  <table class="table">
+      <thead style="color: rgb(33,37,30);">
+          <tr>
+              <th>Manumission</th>
+              <th>Monthly Meeting</th>
+              <th>Call Number</th>
+          </tr>
+      </thead>
+      <tbody style="color: rgb(33,37,30);">
+        {% if manumission_list %}
+          
 
-  {% for manumission in manumission_list %}
-    <li>
-      <a href="{{ manumission.get_absolute_url }}">
-      {{ manumission }} ({{manumission.monthly_meeting}})
-      </a>
-    </li>
-  {% endfor %}
+          {% for manumission in manumission_list %}
+            <tr>
+              <td>
+                <a href="{{ manumission.get_absolute_url }}">
+                {{ manumission }}
+                </a>
+              </td>
+              <td>
+                {{manumission.monthly_meeting}}
+              </td>
+              <td>
+                {{manumission.call_number}}
+              </td>
+            </tr>
+          {% endfor %}
 
-  </ul>
-  
-{% else %}
-  <p>There are no Manumissions in the library.</p>
-{% endif %}
+        {% else %}
+          <tr>
+            <td>There are no Manumissions in the library.</td>
+          </tr>
+        {% endif %}
 
+      </tbody>
+  </table>
+</div>
+
+<div class="container"> <br> </div>
 
 {% endblock %}

@@ -2,25 +2,42 @@
 
 {% block content %}
 
-<h1>{{ manumission }} </h1>
-<ul>
-  <li><strong>Date of Manumission Signing:</strong> {{manumission.date_of_manumission_signing}}</li>
-  <li><strong>Monthly Meeting:</strong> {{manumission.monthly_meeting}}</li>
-  <li><strong>Physical Page Number:</strong> {{manumission.page_number}}</li>  
-  <li><strong>Call Number:</strong> {{manumission.call_number}}</li>  
-  <li><strong>Digital Image Name:</strong> {{manumission.image_name}}</li> 
-</ul>
-
-<div style="margin-left:20px;margin-top:20px">
-<h4>Persons</h4>
-    
-<dl>
-  {% for person in manumission.person.all %}
-    <dt><a href="{% url 'person-detail' person.pk %}">{{person.last_name|default_if_none:" " }}, {{ person.first_name }}</a></dt>
-      <dd><strong>Role(s):</strong> {% for role in person.role.all %} {% if not forloop.last %} {{role}}, {% else %} {{role}} {% endif %} {% endfor %} </dd>
-    {% endfor %}
-  </dl>
-    
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="background: rgb(49,53,58);color: rgb(33, 37, 30);">
+        <h1 class="text-monospace text-center" style="color: #eae4cc;">{{ manumission }}<br></h1>
+    </div>
+  </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="background: rgb(247, 245, 233);">
+      <br>
+      <h4 class="text-center" style="background: rgb(242, 238, 220);"><br>Details<br><br></h4>
+      <p>{{person.date_of_birth|default_if_none:"unknown date of birth"}}{% if person.date_of_death %}{{"-"}}{{person.date_of_death}}{% endif %}</p>
+      <ul>
+        <li><strong>Date of Manumission Signing:</strong> {{manumission.date_of_manumission_signing}}</li>
+        <li><strong>Monthly Meeting:</strong> {{manumission.monthly_meeting}}</li>
+        <li><strong>Physical Page Number:</strong> {{manumission.page_number}}</li>  
+        <li><strong>Call Number:</strong> {{manumission.call_number}}</li>  
+        <li><strong>Digital Image Name:</strong> {{manumission.image_name}}</li> 
+      </ul>
+    </div>
+      <div class="col-md-6" style="background: rgb(247, 245, 233);">
+        <br>
+        <h4 class="text-center" style="background: rgb(242, 238, 220);"><br>Persons<br><br></h4>
+          <dl>
+            {% for person in manumission.person.all %}
+              <dt><a href="{% url 'person-detail' person.pk %}">{{person.last_name|default_if_none:" " }}, {{ person.first_name }}</a></dt>
+                <dd><strong>Role(s):</strong> {% for role in person.role.all %} {% if not forloop.last %} {{role}}, {% else %} {{role}} {% endif %} {% endfor %} </dd>
+            {% endfor %}
+          </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container"> <br> </div>
 
 {% endblock %}

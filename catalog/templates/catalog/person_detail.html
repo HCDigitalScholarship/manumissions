@@ -2,32 +2,51 @@
 
 {% block content %}
 
-<h1>Person: {{ person.first_name }} {{person.last_name|default_if_none:" " }} </h1>
-<p>{{person.date_of_birth|default_if_none:"(unknown)"}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %}</p>
-<ul>
-  <li><strong>Gender:</strong> {{person.gender}}</li>
-  <li><strong>Year Manumitted:</strong> {{person.year_manumitted}}</li>
-  <li><strong>Age Freed:</strong> {{person.age_freed}}</li>
-  <li><strong>Age at time of Manumission Signing:</strong> {{person.age_listed}}</li>
-  <li><strong>Place Freed:</strong> {{person.place_freed}}</li>
-  <li><strong>Role(s):</strong> {% for role in person.role.all %} {% if not forloop.last %} {{role}}, {% else %} {{role}} {% endif %} {% endfor %}</li>
-
-</ul>
-
-<div style="margin-left:20px;margin-top:20px">
-<h4>Manumissions</h4>
-
-<dl>
-  {% for manumission in person.manumission_set.all %}
-    <dt><a href="{% url 'manumission-detail' manumission.pk %}">{{manumission}}</a></dt>
-    <ul>
-    <li><strong>Monthly Meeting:</strong> {{manumission.monthly_meeting}}</li>
-    <li><strong>Date of Manumission Signing:</strong> {{manumission.date_of_manumission_signing}}</li>
-    <li><strong>Call Number:</strong> {{manumission.call_number}}</li>
-    <li><strong>Persons involved:</strong> {% for person in manumission.person.all %} <br> {{person.last_name|default_if_none:" " }}, {{ person.first_name }}  {% endfor %}</li>
-    </ul> 
-  {% endfor %}
-  </dl>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="background: rgb(49,53,58);color: rgb(33, 37, 30);">
+        <h1 class="text-monospace text-center" style="color: #eae4cc;">Person: {{ person.first_name }} {{person.last_name|default_if_none:" " }} <br></h1>
+    </div>
+  </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="background: rgb(247, 245, 233);">
+      <br>
+      <h4 class="text-center" style="background: rgb(242, 238, 220);"><br>Details<br><br></h4>
+      <p>{{person.date_of_birth|default_if_none:"unknown date of birth"}}{% if person.date_of_death %}{{"-"}}{{person.date_of_death}}{% endif %}</p>
+      <ul>
+        <li><strong>Gender:</strong> {{person.gender}}</li>
+        <li><strong>Year Manumitted:</strong> {{person.year_manumitted}}</li>
+        <li><strong>Age Freed:</strong> {{person.age_freed}}</li>
+        <li><strong>Age at time of Manumission Signing:</strong> {{person.age_listed}}</li>
+        <li><strong>Place Freed:</strong> {{person.place_freed}}</li>
+        <li><strong>Role(s):</strong> {% for role in person.role.all %} {% if not forloop.last %} {{role}}, {% else %} {{role}} {% endif %} {% endfor %}</li>
+
+      </ul>
+    </div>
+      <div class="col-md-6" style="background: rgb(247, 245, 233);">
+        <br>
+        <h4 class="text-center" style="background: rgb(242, 238, 220);"><br>Manumissions<br><br></h4>
+          <dl>
+          {% for manumission in person.manumission_set.all %}
+            <dt><a href="{% url 'manumission-detail' manumission.pk %}">{{manumission}}</a></dt>
+            <ul>
+            <li><strong>Monthly Meeting:</strong> {{manumission.monthly_meeting}}</li>
+            <li><strong>Date of Manumission Signing:</strong> {{manumission.date_of_manumission_signing}}</li>
+            <li><strong>Call Number:</strong> {{manumission.call_number}}</li>
+            <li><strong>Persons involved:</strong> 
+              {% for person in manumission.person.all %} 
+                <br> {{person.last_name|default_if_none:" " }}, {{person.first_name}} {% endfor %}</li>
+            </ul> 
+          {% endfor %}
+          </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container"> <br> </div>
+
 {% endblock %}

@@ -6,39 +6,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  
+  <link rel="stylesheet" href="/assets/css/Footer-Basic.css">
+  <link rel="stylesheet" href="/assets/css/Footer-Dark.css">
+
   <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body>
+<body style="background: rgb(234,228,204);">
+
+  <nav class="navbar navbar-light navbar-expand-md" style="background: rgb(33,37,41);">
+        <div class="container-fluid"><a class="navbar-brand" href="{% url 'index' %}" style="color: #eae4cc;border-color: rgb(170,170,170);">Manumissions</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" style="color: rgb(104,105,106);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'manumissions' %}" style="color: rgb(104,105,106);">All Manumissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'persons' %}" style="color: rgb(104,105,106);">All Persons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" style="color: rgb(104,105,106);">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'visualizations' %}" style="color: rgb(104,105,106);">Visualizations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'glossary' %}" style="color: rgb(104,105,106);">Glossary</a></li>
+                    {% if user.is_authenticated %}
+                      <li>User: {{ user.get_username }}</li>
+                      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+                    {% else %}
+                      <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+                    {% endif %} 
+                </ul>
+            </div>
+        </div>
+    </nav>
 
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-sm-2">
-      {% block sidebar %}
-        <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'manumissions' %}">All Manumissions</a></li>
-          <li><a href="{% url 'persons' %}">All Persons</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'visualizations' %}">Visualizations</a></li>
-          <li><a href="{% url 'glossary' %}">Glossary</a></li>
-        </ul>
 
-        <ul class="sidebar-nav">
-          {% if user.is_authenticated %}
-            <li>User: {{ user.get_username }}</li>
-            <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
-          {% else %}
-            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
-          {% endif %} 
-         </ul>
-
-     {% endblock %}
-      </div>
-      <div class="col-sm-10 ">
+      <div class="col-sm-12">
       {% block content %}{% endblock %}
 
       {% block pagination %}
@@ -56,12 +58,27 @@
                 {% endif %}
             </span>
         </div>
+
+        <div class="container"> <br> </div>
+        
     {% endif %}
   {% endblock %} 
 
     </div>
+
+    <div class="col-sm-2">
+      <!--adding spacing-->
+      </div>
   </div>
 
 </div>
 </body>
+<footer class="footer-basic" style="background: rgb(33,37,41);">
+        <br>
+        <p class="text-center" style="color: rgb(170,170,170);">Contact Us: HC-special@haverford.edu<br></p>
+        <p class="text-center" style="color: rgb(170, 170, 170);">
+          You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.
+        </p>
+        <br>
+</footer>
 </html>

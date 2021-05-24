@@ -1,1 +1,5 @@
 manumissions/settings.py 
+catalog/migrations/
+catalog/__pycache__
+*.pyc
+.vscode
