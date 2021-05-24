@@ -3,3 +3,4 @@ catalog/migrations/
 catalog/__pycache__
 *.pyc
 .vscode
+db.sqlite3
