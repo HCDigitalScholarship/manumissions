@@ -22,9 +22,9 @@
                     <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" style="color: rgb(104,105,106);">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'manumissions' %}" style="color: rgb(104,105,106);">All Manumissions</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'persons' %}" style="color: rgb(104,105,106);">All Persons</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" style="color: rgb(104,105,106);">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'visualizations' %}" style="color: rgb(104,105,106);">Visualizations</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'glossary' %}" style="color: rgb(104,105,106);">Glossary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" style="color: rgb(104,105,106);">About</a></li>
                     {% if user.is_authenticated %}
                       <li>User: {{ user.get_username }}</li>
                       <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
