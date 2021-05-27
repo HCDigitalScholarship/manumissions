@@ -132,10 +132,13 @@ class Command(BaseCommand):
                 if len(witness.split(',')) >1:
                     #print('[*] 131',witness.split(','))
                     first, last = witness.split(',')
-                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last)  
-                    if created:
-                        manumission.person.add(witness_person)
-        
+                    try:
+                        witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last)  
+                        if created:
+                            manumission.person.add(witness_person)
+                    except MultipleObjectsReturned:
+                        remove_duplicate_people()
+                        
         # strip spaces from persons
         for person in Person.objects.all():
             if person.first_name: 
