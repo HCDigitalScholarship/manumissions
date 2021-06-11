@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,27 +12,21 @@
   <link rel="stylesheet" href="/assets/css/Footer-Dark.css">
 
   <!-- Add additional CSS in static file -->
-  {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body style="background: rgb(234,228,204);">
+<body>
 
-  <nav class="navbar navbar-light navbar-expand-md" style="background: rgb(33,37,41);">
-        <div class="container-fluid"><a class="navbar-brand" href="{% url 'index' %}" style="color: #eae4cc;border-color: rgb(170,170,170);">Manumissions</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+  <nav class="navbar  navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="{% url 'index' %}">Manumissions</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" style="color: rgb(104,105,106);">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'manumissions' %}" style="color: rgb(104,105,106);">All Manumissions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'persons' %}" style="color: rgb(104,105,106);">All Persons</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'visualizations' %}" style="color: rgb(104,105,106);">Visualizations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'glossary' %}" style="color: rgb(104,105,106);">Glossary</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" style="color: rgb(104,105,106);">About</a></li>
-                    {% if user.is_authenticated %}
-                      <li>User: {{ user.get_username }}</li>
-                      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
-                    {% else %}
-                      <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
-                    {% endif %} 
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" >Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'manumissions' %}" >All Manumissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'persons' %}" >All Persons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'visualizations' %}" >Visualizations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'glossary' %}" >Glossary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" >About</a></li>
+                   
                 </ul>
             </div>
         </div>
@@ -71,14 +67,60 @@
       </div>
   </div>
 
+
+
+<footer class = "footer" id = "footer1">
+  <div class = "row full-width">
+
+
+<div class = "hide-for-medium-up small-12 columns">
+<ul class = "no-bullet">
+<li> Haverford College Libraries</li>
+<li>370 Lancaster Ave. </li>
+<li>Haverford, PA 19041 </li>
+<li> <a href = "library.haverford.edu"> Haverford Libararies Website </a></li>
+</ul>
+</div> 
+
+<div class = "hide-for-small-only medium-4 large-4 columns text-center" id ="vert">
+        <ul class = "no-bullet">
+          <li> Quaker &amp; Special Collections</li>
+          <li> Haverford College Libraries</li>
+          <li>370 Lancaster Ave.</li>
+          <li>Haverford, PA 19041</li>
+           <li>  <a href = "http://library.haverford.edu/places/special-collections">Special Collections Website </a></li>
+        </ul>
+    </div>
+
+
+
+
+<div class = "hide-for-small-only  medium-4 large-4 columns" id = "vert">
+        <ul class = "no-bullet">
+       <li> Digital Scholarship</li>
+       <li> Haverford College Libraries</li>
+      <li>  370 Lancaster Avenue</li>
+      <li>  Haverford, PA 19041</li>
+       <li>  <a href = "http://library.haverford.edu/services/digital-scholarship/"> HaverfordDS Website </a></li>
+      </ul>
+      
+
+    </div>
+    <div class = "hide-for-small-only medium-4 large-4 columns">
+        <ul class = "no-bullet">
+          <li> Funding Provided By: </li>
+          <li> The Scattergood Foundation</li>
+          <li>1501 Cherry Street</li>
+          <li>Philadelphia, PA 19102 </li>
+           <li>  <a href = "http://www.scattergoodfoundation.org/">Scattergood Foundation Website </a></li>
+        </ul>
+     
+    </div>  
+    
+
+
+<!--now whatever footer you want goes after this with closing div and div and footer-->
 </div>
 </body>
-<footer class="footer-basic" style="background: rgb(33,37,41);">
-        <br>
-        <p class="text-center" style="color: rgb(170,170,170);">Contact Us: HC-special@haverford.edu<br></p>
-        <p class="text-center" style="color: rgb(170, 170, 170);">
-          You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.
-        </p>
-        <br>
-</footer>
+
 </html>

@@ -1,6 +1,54 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Quintessential&display=swap');
+
+body {
+    background-image: url('/static/img/paper-9a.jpg');
+
+}
+
+h1 {
+    font-family: 'Quintessential', cursive;
+}
+
+* {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+a {
+    color:inherit;
+    text-decoration: underline;
+    
+}
+
+.container {
+    background:white;
+}
+a:hover { 
+    color:lightblue;
+    
+}
+
+.navbar-brand {
+    font-family: 'Quintessential', cursive;
+    text-decoration: none;
+    /* text-shadow: 0px 2px 2px #555; */
+    
+}
 .sidebar-nav {
     margin-top: 20px;
     padding: 0;
     list-style: none;
 }
 
+footer {
+    background: 
+}
+
+.navbar-toggler-icon{
+    color:inherit;
+}
+
+.navbar {
+    color:inherit;
+   
+}
