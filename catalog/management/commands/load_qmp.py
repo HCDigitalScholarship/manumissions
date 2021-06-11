@@ -56,7 +56,7 @@ class Command(BaseCommand):
             monthly_meeting, created = Monthly_Meeting.objects.get_or_create(monthly_meeting=row['Monthly Meeting'])
             # # call_number, vestigial from Mozilla tutorial, I assume they mean image_name
 
-            manu_title = 'Manumission of ' + ''.join([row['Name of Enslaved Person (Transcribe what is listed)'],row['Date (YYYY-MM-DD)']])
+            manu_title = 'Manumission of ' + row['Name of Enslaved Person (Transcribe what is listed)'] + ', ' + row['Date (YYYY-MM-DD)']
 
             manumission, created = Manumission.objects.get_or_create(
                 title= manu_title,
@@ -135,13 +135,11 @@ class Command(BaseCommand):
                 if len(witness.split(',')) >1:
                     #print('[*] 131',witness.split(','))
                     first, last = witness.split(',')
-                    try:
-                        role, created = Role.objects.get_or_create(name='Witness')
-                        witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last,role=role)  
-                        if created:
-                            manumission.person.add(witness_person)
-                    except MultipleObjectsReturned:
-                        remove_duplicate_people()
+                    role, created = Role.objects.get_or_create(name='Witness')
+                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last,role=role)  
+                    if created:
+                        manumission.person.add(witness_person)
+                    
                         
         # strip spaces from persons
         for person in Person.objects.all():
