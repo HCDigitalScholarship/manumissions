@@ -17,6 +17,11 @@ def visualizations(request):
         request,
         'visualizations.html')
 
+def essays(request):
+    return render(
+        request,
+        'essays.html')
+
 def glossary(request):
     return render(
         request,
