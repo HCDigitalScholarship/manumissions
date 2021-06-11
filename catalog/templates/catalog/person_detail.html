@@ -4,17 +4,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12" style="background: rgb(49,53,58);color: rgb(33, 37, 30);">
-        <h1 class="text-monospace text-center" style="color: #eae4cc;">Person: {{ person.first_name }} {{person.last_name|default_if_none:" " }} <br></h1>
+    <div class="col-md-12" >
+        <h1 class="text-center" >Person: {{ person.first_name }} {{person.last_name|default_if_none:" " }} <br></h1>
     </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6" style="background: rgb(247, 245, 233);">
+    <div class="col-md-6" >
       <br>
-      <h4 class="text-center" style="background: rgb(242, 238, 220);"><br>Details<br><br></h4>
+      <h4 class="text-center" ><br>Details<br><br></h4>
       <p>{{person.date_of_birth|default_if_none:"unknown date of birth"}}{% if person.date_of_death %}{{"-"}}{{person.date_of_death}}{% endif %}</p>
       <ul>
         <li><strong>Gender:</strong> {{person.gender}}</li>
@@ -26,9 +26,9 @@
 
       </ul>
     </div>
-      <div class="col-md-6" style="background: rgb(247, 245, 233);">
+      <div class="col-md-6" >
         <br>
-        <h4 class="text-center" style="background: rgb(242, 238, 220);"><br>Manumissions<br><br></h4>
+        <h4 class="text-center" ><br>Manumissions<br><br></h4>
           <dl>
           {% for manumission in person.manumission_set.all %}
             <dt><a href="{% url 'manumission-detail' manumission.pk %}">{{manumission}}</a></dt>
@@ -45,8 +45,7 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="container"> <br> </div>
+
 
 {% endblock %}
