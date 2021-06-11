@@ -116,7 +116,8 @@ class Command(BaseCommand):
             for witness in witnesses:
                 if witness in row['Unabbreviated - Witnesses (ex: "Sealed and delivered in the Presence of...") (Last name, First name)']:
                     first, last = witness.split(',')
-                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last)
+                    role, created = Role.objects.get_or_create(name='Witness')
+                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last,role=role)
                     manumission.person.add(witness_person)
             
         self.stdout.write(self.style.SUCCESS('Done'))

@@ -129,13 +129,15 @@ class Command(BaseCommand):
                 slaveowner.role.add(role)
                 manumission.person.add(slaveowner)
 
+            
             # Add witnesses 
             for witness in row['Unabbreviated - Witnesses (ex: "Sealed and delivered in the Presence of...") (Last name, First name)'].split(';'):
                 if len(witness.split(',')) >1:
                     #print('[*] 131',witness.split(','))
                     first, last = witness.split(',')
                     try:
-                        witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last)  
+                        role, created = Role.objects.get_or_create(name='Witness')
+                        witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last,role=role)  
                         if created:
                             manumission.person.add(witness_person)
                     except MultipleObjectsReturned:
