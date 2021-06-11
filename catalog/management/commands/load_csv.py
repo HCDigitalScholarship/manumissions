@@ -72,7 +72,7 @@ class Command(BaseCommand):
             # monthly_meeting ignore, no data this column
             # call_number, vestigial from Mozilla tutorial, I assume they mean image_name
 
-            manu_title = 'Manumission of ' + ''.join([row['Name of Enslaved Person (Transcribe what is listed)'],row['Date (YYYY-MM-DD)']])
+            manu_title = 'Manumission of ' + row['Name of Enslaved Person (Transcribe what is listed)'] + ', ' + row['Date (YYYY-MM-DD)']
             manumission, creates = Manumission.objects.get_or_create(
                 title= manu_title,
                 date_of_manumission_signing=date_of_manumission_signing,
