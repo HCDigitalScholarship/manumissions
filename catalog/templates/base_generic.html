@@ -33,11 +33,7 @@
         </div>
     </nav>
 
-  <div class="container-fluid">
-
-    <div class="row">
-
-      <div class="col-sm-12">
+  
       {% block content %}{% endblock %}
 
       {% block pagination %}
@@ -61,20 +57,16 @@
     {% endif %}
   {% endblock %} 
 
-    </div>
-
-    <div class="col-sm-2">
-      <!--adding spacing-->
-      </div>
-  </div>
+   
 
 
 
-<footer class ="footer container" id = "footer1" style="margin:10px;">
+
+<footer class ="footer" id = "footer1" style="margin:10px;">
   
+<div class="container">
 
-
-<div class = "hide-for-small-only medium-12 large-12 columns text-center">
+ <div class = "hide-for-small-only medium-12 large-12 columns text-center">
         <br>
         <ul style="list-style-type: none;">
           <li> Quaker &amp; Special Collections</li>
@@ -85,16 +77,8 @@
         </ul>
     </div>
     <br>
-
-
-
-
-   
-    
-
-
-<!--now whatever footer you want goes after this with closing div and div and footer-->
 </div>
+</footer>
 </body>
 
 </html>
