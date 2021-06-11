@@ -72,9 +72,9 @@ class Command(BaseCommand):
             # monthly_meeting ignore, no data this column
             # call_number, vestigial from Mozilla tutorial, I assume they mean image_name
 
-
+            manu_title = 'Manumission of ' + ''.join([row['Name of Enslaved Person (Transcribe what is listed)'],row['Date (YYYY-MM-DD)']])
             manumission, creates = Manumission.objects.get_or_create(
-                title=row['Image Name (HC10-10002_XXX)'],
+                title= manu_title,
                 date_of_manumission_signing=date_of_manumission_signing,
                 image_name=image_name,
                 page_number=page_number,
@@ -116,7 +116,7 @@ class Command(BaseCommand):
             for witness in witnesses:
                 if witness in row['Unabbreviated - Witnesses (ex: "Sealed and delivered in the Presence of...") (Last name, First name)']:
                     first, last = witness.split(',')
-                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last)  
+                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last)
                     manumission.person.add(witness_person)
             
         self.stdout.write(self.style.SUCCESS('Done'))

@@ -23,6 +23,7 @@ def remove_duplicate_people():
             .exclude(id=duplicate['max_id'])
             .delete()
         )
+# issues, name of manumission is currently filename, needs to be other format 
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
@@ -55,9 +56,10 @@ class Command(BaseCommand):
             monthly_meeting, created = Monthly_Meeting.objects.get_or_create(monthly_meeting=row['Monthly Meeting'])
             # # call_number, vestigial from Mozilla tutorial, I assume they mean image_name
 
+            manu_title = 'Manumission of ' + ''.join([row['Name of Enslaved Person (Transcribe what is listed)'],row['Date (YYYY-MM-DD)']])
 
             manumission, created = Manumission.objects.get_or_create(
-                title=row['Image Name (HC10-10002_XXX)'],
+                title= manu_title,
                 image_name=image_name,
                 page_number=page_number,
             )
