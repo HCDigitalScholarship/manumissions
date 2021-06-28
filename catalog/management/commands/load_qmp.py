@@ -131,14 +131,13 @@ class Command(BaseCommand):
 
             
             # Add witnesses 
-            for witness in row['Unabbreviated - Witnesses (ex: "Sealed and delivered in the Presence of...") (Last name, First name)'].split(';'):
-                if len(witness.split(',')) >1:
+         #   for witness in row['Unabbreviated - Witnesses (ex: "Sealed and delivered in the Presence of...") (Last name, First name)'].split(';'):
+          #      if len(witness.split(',')) >1:
                     #print('[*] 131',witness.split(','))
-                    first, last = witness.split(',')
-                    role, created = Role.objects.get_or_create(name='Witness')
-                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last,role=role)  
-                    if created:
-                        manumission.person.add(witness_person)
+           #         first, last = witness.split(',')
+            #        role, created = Role.objects.get_or_create(name='Witness')
+             #       witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last,role=role)  
+              #      manumission.person.add(witness_person)
                     
                         
         # strip spaces from persons

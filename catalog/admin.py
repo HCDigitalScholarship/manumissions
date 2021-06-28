@@ -30,3 +30,4 @@ class PersonAdmin(admin.ModelAdmin):
 class ManumissionAdmin(admin.ModelAdmin):
     list_display = ('title', 'display_person', 'monthly_meeting')
     list_filter = ('call_number', 'monthly_meeting')
+    search_fields = ['title']
