@@ -62,6 +62,7 @@ class Command(BaseCommand):
                 title= manu_title,
                 image_name=image_name,
                 page_number=page_number,
+                monthly_meeting=monthly_meeting
             )
             if date:
                 date_of_manumission_signing = datetime.datetime(int(date[0]), int(date[1]), int(date[2]))
