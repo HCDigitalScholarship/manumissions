@@ -50,5 +50,6 @@ footer {
 
 .navbar {
     color:inherit;
-   
+    background: white;
+    opacity: 0.98;   
 }

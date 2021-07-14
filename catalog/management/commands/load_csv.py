@@ -70,7 +70,8 @@ class Command(BaseCommand):
 
             date = row['Date (YYYY-MM-DD)'].split('-')
             date_of_manumission_signing = datetime.datetime(int(date[0]), int(date[1]), int(date[2]))
-            monthly_meeting, created = Monthly_Meeting.objects.get_or_create(monthly_meeting=row['Monthly Meeting'])
+            monthly_meeting, created = Monthly_Meeting.objects.get_or_create(monthly_meeting="Blackwater")
+            print(monthly_meeting) 
             place_freed, created = Place_Freed.objects.get_or_create(place_freed=row['Place (Township, County, etc)'])
             # monthly_meeting ignore, no data this column
             # call_number, vestigial from Mozilla tutorial, I assume they mean image_name

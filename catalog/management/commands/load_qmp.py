@@ -54,6 +54,7 @@ class Command(BaseCommand):
             # # monthly_meeting ignore, no data this column
 
             monthly_meeting, created = Monthly_Meeting.objects.get_or_create(monthly_meeting=row['Monthly Meeting'])
+            print(monthly_meeting)
             # # call_number, vestigial from Mozilla tutorial, I assume they mean image_name
 
             manu_title = 'Manumission of ' + row['Name of Enslaved Person (Transcribe what is listed)'] + ', ' + row['Date (YYYY-MM-DD)']
@@ -62,8 +63,10 @@ class Command(BaseCommand):
                 title= manu_title,
                 image_name=image_name,
                 page_number=page_number,
-                monthly_meeting=monthly_meeting
             )
+            manumission.monthly_meeting = monthly_meeting
+            manumission.save()
+
             if date:
                 date_of_manumission_signing = datetime.datetime(int(date[0]), int(date[1]), int(date[2]))
                 manumission.date_of_manumission_signing=date_of_manumission_signing,
