@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,43 +11,48 @@
   <link rel="stylesheet" href="/assets/css/Footer-Basic.css">
   <link rel="stylesheet" href="/assets/css/Footer-Dark.css">
 
+<link rel="apple-touch-icon" sizes="57x57" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-57x57.png"/>
+<link rel="apple-touch-icon" sizes="60x60" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-60x60.png"/>
+<link rel="apple-touch-icon" sizes="72x72" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-72x72.png"/>
+<link rel="apple-touch-icon" sizes="76x76" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-76x76.png"/>
+<link rel="apple-touch-icon" sizes="114x114" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-114x114.png"/>
+<link rel="apple-touch-icon" sizes="120x120" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-120x120.png"/>
+<link rel="apple-touch-icon" sizes="144x144" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-144x144.png"/>
+<link rel="apple-touch-icon" sizes="152x152" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-152x152.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.haverford.edu/sites/default/files/favicons/apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/png" href="https://www.haverford.edu/sites/default/files/favicons/favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="https://www.haverford.edu/sites/default/files/favicons/android-chrome-192x192.png" sizes="192x192"/>
+<link rel="icon" type="image/png" href="https://www.haverford.edu/sites/default/files/favicons/favicon-96x96.png" sizes="96x96"/>
+<link rel="icon" type="image/png" href="https://www.haverford.edu/sites/default/files/favicons/favicon-16x16.png" sizes="16x16"/>
+
   <!-- Add additional CSS in static file -->
-  {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body style="background: rgb(234,228,204);">
+<body>
 
-  <nav class="navbar navbar-light navbar-expand-md" style="background: rgb(33,37,41);">
-        <div class="container-fluid"><a class="navbar-brand" href="{% url 'index' %}" style="color: #eae4cc;border-color: rgb(170,170,170);">Manumissions</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+  <nav class="navbar  navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="{% url 'index' %}">Manumissions</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" style="color: rgb(104,105,106);">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'manumissions' %}" style="color: rgb(104,105,106);">All Manumissions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'persons' %}" style="color: rgb(104,105,106);">All Persons</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'visualizations' %}" style="color: rgb(104,105,106);">Visualizations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'glossary' %}" style="color: rgb(104,105,106);">Glossary</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" style="color: rgb(104,105,106);">About</a></li>
-                    {% if user.is_authenticated %}
-                      <li>User: {{ user.get_username }}</li>
-                      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
-                    {% else %}
-                      <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
-                    {% endif %} 
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" >Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'manumissions' %}" >All Manumissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'persons' %}" >All Persons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'visualizations' %}" >Visualizations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'glossary' %}" >Glossary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" >About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'essays' %}" >Essays</a></li>
+                    
                 </ul>
             </div>
         </div>
     </nav>
 
-  <div class="container-fluid">
-
-    <div class="row">
-
-      <div class="col-sm-12">
+  
       {% block content %}{% endblock %}
 
       {% block pagination %}
         {% if is_paginated %}
-          <div class="pagination">
+          <div class="pagination container">
             <span class="page-links">
                 {% if page_obj.has_previous %}
                     <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
@@ -59,26 +66,61 @@
             </span>
         </div>
 
-        <div class="container"> <br> </div>
+       
         
     {% endif %}
   {% endblock %} 
 
-    </div>
+   
 
-    <div class="col-sm-2">
-      <!--adding spacing-->
+
+
+
+<footer class ="footer" id = "footer1" style="margin:10px;">
+  
+<div class="container">
+  
+   <div class="row">
+     <div class="col"></div>
+      <div class="col">
+        <ul>
+          <li style="list-style-type: none;"><a href="http://library.haverford.edu/places/special-collections">Quaker &amp; Special Collections</a></li>
+          <li style="list-style-type: none;"><a href="http://library.haverford.edu">Haverford College Libaries</a></li>
+          <li style="list-style-type: none;">370 Lancaster Avenue</li>
+          <li style="list-style-type: none;">Haverford, PA 19041</li>
+        </ul>
       </div>
-  </div>
+      <div class="col">
+        <ul>
+          <li style="list-style-type: none;"><a href="http://library.haverford.edu/services/digital-scholarship/">Digital Scholarship</a></li>
+          <li style="list-style-type: none;"><a href="http://library.haverford.edu">Haverford College Libaries</a></li>
+          <li style="list-style-type: none;">370 Lancaster Avenue</li>
+          <li style="list-style-type: none;">Haverford, PA 19041</li>
+        </ul>
+      </div>
+      <div class="col"></div>
+    </div><!-- class="row" -->
 
+
+          <!-- FOOTER SOCIAL LINKS -->
+    <div class="row">
+      <div class="col-12 text-center">
+
+              <a href ="https://www.facebook.com/hclibraries"><box-icon type="logo" name="facebook-square"></box-icon></a>
+              <a href ="https://twitter.com/HCLibraries"><box-icon type="logo" name="twitter"></box-icon></a>
+              <a href ="https://instagram.com/HCLibraries/"><box-icon type="logo" name="instagram"></box-icon></a>
+              <a href ="https://vimeo.com/hclibraries"><box-icon type="logo" name="vimeo"></box-icon></a>
+              <a href ="mailto:library@haverford.edu"><box-icon name='mail-send' ></box-icon></a>
+
+        </div>
+        
+    </div><!-- class="icons" -->
+
+       
+    </div>
 </div>
-</body>
-<footer class="footer-basic" style="background: rgb(33,37,41);">
-        <br>
-        <p class="text-center" style="color: rgb(170,170,170);">Contact Us: HC-special@haverford.edu<br></p>
-        <p class="text-center" style="color: rgb(170, 170, 170);">
-          You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.
-        </p>
-        <br>
 </footer>
+<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+</body>
+
 </html>

@@ -1,21 +1,21 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
-<div class="col-md-12" style="background: rgb(49,53,58);color: rgb(33, 37, 30);">
-  <h1 class= "text-monospace text-center" style="color: #eae4cc;">Manumission List</h1>
+<div class="container">
+<div class="col-md-12" >
+  <h1 class= " text-center" >Manumission List</h1>
 </div>
 
-<div class="table-responsive" style="background: rgb(255,255,255);color: rgb(33,37,30);">
+<div class="table-responsive" >
   <table class="table">
-      <thead style="color: rgb(33,37,30);">
+      <thead >
           <tr>
               <th>Manumission</th>
               <th>Monthly Meeting</th>
               <th>Call Number</th>
           </tr>
       </thead>
-      <tbody style="color: rgb(33,37,30);">
+      <tbody >
         {% if manumission_list %}
           
 
@@ -44,7 +44,6 @@
       </tbody>
   </table>
 </div>
-
-<div class="container"> <br> </div>
+</div>
 
 {% endblock %}

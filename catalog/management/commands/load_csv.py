@@ -23,6 +23,9 @@ def remove_duplicate_people():
             .delete()
         )
 
+# Missing monthly meeting 
+# Call number 
+
 class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('csv_path', nargs='+', type=str)
@@ -67,17 +70,19 @@ class Command(BaseCommand):
 
             date = row['Date (YYYY-MM-DD)'].split('-')
             date_of_manumission_signing = datetime.datetime(int(date[0]), int(date[1]), int(date[2]))
-
+            monthly_meeting, created = Monthly_Meeting.objects.get_or_create(monthly_meeting="Blackwater")
+            print(monthly_meeting) 
             place_freed, created = Place_Freed.objects.get_or_create(place_freed=row['Place (Township, County, etc)'])
             # monthly_meeting ignore, no data this column
             # call_number, vestigial from Mozilla tutorial, I assume they mean image_name
 
-
+            manu_title = 'Manumission of ' + row['Name of Enslaved Person (Transcribe what is listed)'] + ', ' + row['Date (YYYY-MM-DD)']
             manumission, creates = Manumission.objects.get_or_create(
-                title=row['Image Name (HC10-10002_XXX)'],
+                title= manu_title,
                 date_of_manumission_signing=date_of_manumission_signing,
                 image_name=image_name,
                 page_number=page_number,
+                monthly_meeting = monthly_meeting
             )
             # Add enslaved people 
             for name, age_listed, freed_age, gender in zip(row['Name of Enslaved Person (Transcribe what is listed)'].split(','),row['Age listed for Enslaved Person'].split(','),row['Freed Age'].split(','),row['Gender of Enslaved Person'].split(',')):
@@ -116,7 +121,8 @@ class Command(BaseCommand):
             for witness in witnesses:
                 if witness in row['Unabbreviated - Witnesses (ex: "Sealed and delivered in the Presence of...") (Last name, First name)']:
                     first, last = witness.split(',')
-                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last)  
+                    role, created = Role.objects.get_or_create(name='Witness')
+                    witness_person, created = Person.objects.get_or_create(first_name=first,last_name=last,role=role)
                     manumission.person.add(witness_person)
             
         self.stdout.write(self.style.SUCCESS('Done'))

@@ -1,41 +1,35 @@
-{% extends "base_generic.html" %}
+{% extends "base_generic.html" %} {% block content %}
+<div class="container">
+  <div class="col-md-12">
+    <h1 class="text-center">Person List</h1>
+  </div>
 
-{% block content %}
-
-<div class="col-md-12" style="background: rgb(49,53,58);color: rgb(33, 37, 30);">
-  <h1 class= "text-monospace text-center" style="color: #eae4cc;">Person List</h1>
-</div>
-
-<div class="table-responsive" style="background: rgb(255,255,255);color: rgb(33,37,30);">
-  <table class="table">
-      <thead style="color: rgb(33,37,30);">
-          <tr>
-              <th>Name</th>
-          </tr>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
       </thead>
-      <tbody style="color: rgb(33,37,30);">
-        {% if person_list %}
-          
-          {% for person in person_list %}
-            <tr>
-              <td>
-                <a href="{{ person.get_absolute_url }}">
-                {{ person.first_name }} {{person.last_name|default_if_none:" " }}, {{person.date_of_birth|default_if_none:""}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %}
-                </a>
-              </td>
-            </tr>
-          {% endfor %}
-
+      <tbody>
+        {% if person_list %} 
+        {% for person in person_list %}
+        <tr>
+          <td>
+            <a href="{{ person.get_absolute_url }}">
+              {{ person.first_name }} {{person.last_name|default_if_none:" " }},
+              {{person.date_of_birth|default_if_none:""}} - {% if person.date_of_death %}{{person.date_of_death}}{% endif %}
+            </a>
+          </td>
+        </tr>
+        {% endfor %} 
         {% else %}
-          <tr>
-            <td>There are no persons available.</td>
-          </tr>
+        <tr>
+          <td>There are no persons available.</td>
+        </tr>
         {% endif %}
-
       </tbody>
-  </table>
-</div>  
-
-<div class="container"> <br> </div>
-        
+    </table>
+  </div>
+</div>
 {% endblock %}

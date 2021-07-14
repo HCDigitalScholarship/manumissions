@@ -24,9 +24,10 @@ admin.site.register(Call_Number)
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'display_role', 'year_manumitted')
     list_filter = ('gender', 'role', 'age_freed', 'place_freed')
-
+    search_fields = ['first_name','last_name']
 # Register the Admin classes for Manumission using the decorator
 @admin.register(Manumission)
 class ManumissionAdmin(admin.ModelAdmin):
     list_display = ('title', 'display_person', 'monthly_meeting')
     list_filter = ('call_number', 'monthly_meeting')
+    search_fields = ['title']
