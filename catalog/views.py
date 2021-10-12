@@ -27,7 +27,7 @@ def glossary(request):
         request,
         'glossary.html')
 
-def glossary(request):
+def allmanumitted(request):
     return render(
         request,
         'allmanumitted.html')
