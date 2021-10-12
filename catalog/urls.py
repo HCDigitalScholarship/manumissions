@@ -10,7 +10,7 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('essays', views.essays, name='essays'),
     path('visualizations', views.visualizations, name='visualizations'),
-    path('glossary', views.glossary, name='glossary')
+    path('glossary', views.glossary, name='glossary'),
     path('allmanumitted', views.allmanumitted, name='allmanumitted')
 ]
 
