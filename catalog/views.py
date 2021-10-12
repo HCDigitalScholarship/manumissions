@@ -11,7 +11,6 @@ def about(request):
         request, 
         'about.html')
 
-
 def visualizations(request):
     return render(
         request,
