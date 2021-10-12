@@ -11,6 +11,7 @@ urlpatterns = [
     path('essays', views.essays, name='essays'),
     path('visualizations', views.visualizations, name='visualizations'),
     path('glossary', views.glossary, name='glossary')
+    path('all_manumitted', views.all_manumitted, name='all_manumitted')
 ]
 
 urlpatterns += [  
