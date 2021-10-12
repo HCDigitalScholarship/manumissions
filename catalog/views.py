@@ -27,6 +27,11 @@ def glossary(request):
         request,
         'glossary.html')
 
+def glossary(request):
+    return render(
+        request,
+        'allmanumitted.html')
+
 def index(request):
     """View function for home page of site."""
     # Generate counts of some of the main objects
