@@ -12,6 +12,7 @@ urlpatterns = [
     path('visualizations', views.visualizations, name='visualizations'),
     path('glossary', views.glossary, name='glossary'),
     path('allmanumitted', views.allmanumitted, name='allmanumitted'),
+    path('allslaveholders', views.allslaveholders, name='allslaveholders'),
 ]
 
 urlpatterns += [  
