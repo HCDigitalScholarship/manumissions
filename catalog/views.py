@@ -31,6 +31,11 @@ def allmanumitted(request):
         request,
         'allmanumitted.html')
 
+def allslaveholders(request):
+    return render(
+        request,
+        'allslaveholders.html')
+
 def index(request):
     """View function for home page of site."""
     # Generate counts of some of the main objects
