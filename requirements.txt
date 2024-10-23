@@ -1,7 +1,20 @@
-asgiref==3.2.10
+setuptools==75.2.0
+# This is a new addition so we can use environment variables in our settings.py and commit that to the repository as it is a necessary file but the
+# specific settings should be decoupled and environment specific.
+python-decouple==3.8
+
+# Upgraded to latest because it is a minor
+asgiref==3.8.1
+# This is super old as well
 dj-database-url==0.5.0
+# Django is on v5... (because this is so old we cannot move to python 3.13 as it has removed the `cgi` package so we will eventually need to address this)
 Django==2.2.14
+# Upgraded to latest because it is a minor (which does not work on django 2.2 because of a timezone change)
+# and 2.8 does not work on python 3.11+ because of some other change in the system, at this time python 3.8 is no longer supported/available trying 3.9
 psycopg2-binary==2.8.5
+# There is pytz 2024.2 out now...
 pytz==2020.1
+# sqlparse is on 0.5.1
 sqlparse==0.3.1
+# white noise latest is 6.7.0
 whitenoise==5.1.0
