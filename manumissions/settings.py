@@ -9,14 +9,13 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
 import os
 from decouple import config
 
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -25,14 +24,37 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [ 'manumissions.haverford.edu', 'localhost', '127.0.0.1' ] if DEBUG else [ 'manumissions.haverford.edu' ]
 DEFAULT_FROM_EMAIL = "hc-special@haverford.edu"
 
+# ================================================================================
+# CORS definition - (cross-origin resource sharing)
+# ================================================================================
 
+# XXX: Think about if we need to lock this down to particular headers or not.... for the moment I believe this is okay.
+CORS_ALLOW_HEADERS = [ '*' ]
+
+DEBUG_ORIGIN_REGEXES = [
+    r"^https?://127\.0\.0\.1:8000",
+] if DEBUG else [ ]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https?://(\w+\.)?haverford\.edu$",
+    r"^https?://(\w+\.)?unpkg\.com$",
+    *DEBUG_ORIGIN_REGEXES,
+]
+
+# ================================================================================
+# CSP definition - (content security policy)
+# ================================================================================
+
+# TODO: Add in a CSP configuration for the site along with the CORS configuration from above.
+
+# ================================================================================
 # Application definition
+# ================================================================================
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'catalog',
     'manumissions',
 ]
@@ -48,6 +71,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -79,8 +103,10 @@ WSGI_APPLICATION = 'manumissions.wsgi.application'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+# ================================================================================
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+# ================================================================================
 
 DATABASES = {
     'default': {
@@ -98,8 +124,10 @@ DATABASES = {
 }
 
 
+# ================================================================================
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+# ================================================================================
 
 AUTH_PASSWORD_VALIDATORS = [
     { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
@@ -109,8 +137,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# ================================================================================
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
+# ================================================================================
 
 LANGUAGE_CODE = 'en-us'
 
@@ -120,8 +150,11 @@ USE_L10N = True
 USE_TZ = True
 
 
+# ================================================================================
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+# ================================================================================
+
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # The URL to use when referring to static files (where they will be served from)
