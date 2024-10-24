@@ -5,23 +5,23 @@ The manumissions project is is a static~ish site developed and maintained by the
 ### Technology and Organization
 
 This project uses the following technology stack:
-    * python - The project development language.
-    * Django - The web framework used for APIs and more.
-    * PostgreSQL - The database where content is stored.
+* python - The project development language.
+* Django - The web framework used for APIs and more.
+* PostgreSQL - The database where content is stored.
 
 This project is organized into a number of subdirectories containing the various parts of the project as follows:
-    * `catalog` - The database models and migrations for the content stored thusly
-    * `manumissions` - The project root, with the global settings, urls, and wsgi configuration.
-    * `staticfiles` - The sites static content is served from this folder
-    * `templates` - The sites Django templates are located in this folder
+* `catalog` - The database models and migrations for the content stored thusly
+* `manumissions` - The project root, with the global settings, urls, and wsgi configuration.
+* `staticfiles` - The sites static content is served from this folder
+* `templates` - The sites Django templates are located in this folder
 
 Other content that is stored in the root of the project:
-    * `.env.example` - Sample `.env` file developers should copy and configure for their specific environment
-    * `manage.py` - The Django manage script
-    * `requirements.txt` - The project library dependency list
-    * `.gitignore` - The standard git ignore file for the project
-    * `DEV_SETUP.md` - Developer local setup guide
-    * `README.md` - This document
+* `.env.example` - Sample `.env` file developers should copy and configure for their specific environment
+* `manage.py` - The Django manage script
+* `requirements.txt` - The project library dependency list
+* `.gitignore` - The standard git ignore file for the project
+* `DEV_SETUP.md` - Developer local setup guide
+* `README.md` - This document
 
 ### Digital Ocean Droplet
 
