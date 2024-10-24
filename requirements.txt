@@ -15,6 +15,6 @@ psycopg2-binary==2.9.10
 # There is pytz 2024.2 out now...
 pytz==2024.2
 # sqlparse is on 0.5.1
-sqlparse==0.4.4
+sqlparse==0.5.1
 # white noise latest is 6.7.0
 whitenoise==5.1.0
