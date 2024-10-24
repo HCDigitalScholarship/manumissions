@@ -16,4 +16,4 @@ uWSGI is used as the python app server (pretty common):
     prod venv `/usr/local/lib/python-virtualenv/manumissions`
 postgeresql server is on the samehost (postgres user)
     manumissions database (localhost:5432)
-    no pg_admin installed
+    PostgreSQL 12.20 is installed on production environment (can we upgrade to PG-17?)
