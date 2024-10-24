@@ -15,7 +15,7 @@ asgiref==3.8.1
 dj-database-url==2.3.0
 
 # Django - A high-level Python web framework that encourages rapid development and clean, pragmatic design
-# Django is on v5... (because this is so old we cannot move to python 3.13 as it has removed the `cgi` package so we will eventually need to address this)
+# TODO: Still need to migrate to Django v5, after that we will want to upgrade our python to 3.13 from 3.9
 Django==4.2.16
 # Django CORS library (cross-origin resource sharing)
 django-cors-headers==4.5.0
