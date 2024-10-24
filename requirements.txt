@@ -8,13 +8,13 @@ asgiref==3.8.1
 # This is super old as well
 dj-database-url==0.5.0
 # Django is on v5... (because this is so old we cannot move to python 3.13 as it has removed the `cgi` package so we will eventually need to address this)
-Django==3.2.25
+Django==4.2.16
 # Upgraded to latest because it is a minor (which does not work on django 2.2 because of a timezone change)
 # and 2.8 does not work on python 3.11+ because of some other change in the system, at this time python 3.8 is no longer supported/available trying 3.9
-psycopg2-binary==2.8.5
+psycopg2-binary==2.9.10
 # There is pytz 2024.2 out now...
-pytz==2020.1
+pytz==2024.2
 # sqlparse is on 0.5.1
-sqlparse==0.3.1
+sqlparse==0.4.4
 # white noise latest is 6.7.0
 whitenoise==5.1.0
