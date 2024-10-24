@@ -6,7 +6,7 @@ python-decouple==3.8
 # Upgraded to latest because it is a minor
 asgiref==3.8.1
 # This is super old as well
-dj-database-url==1.3.0
+dj-database-url==2.3.0
 # Django is on v5... (because this is so old we cannot move to python 3.13 as it has removed the `cgi` package so we will eventually need to address this)
 Django==4.2.16
 # Upgraded to latest because it is a minor (which does not work on django 2.2 because of a timezone change)
