@@ -1,20 +1,37 @@
+# setuptools - Easily download, build, install, upgrade, and uninstall Python packages
+# This package is added into the project as it is no longer included out of the box with later versions of python3.
 setuptools==75.2.0
-# This is a new addition so we can use environment variables in our settings.py and commit that to the repository as it is a necessary file but the
-# specific settings should be decoupled and environment specific.
+
+# python-decouple - Strict separation of settings from code
+# This was added into the project to facilitate ease of configuration using environment variables in the manumissions/settings.py.
+# This allows us to maintain the settings.py in the repository as is appropriate but keep secret keys, passwords, and other
+# environment specific configuration stored externally in a file named `.env`.
 python-decouple==3.8
 
-# Upgraded to latest because it is a minor
+# asgiref - ASGI specs, helper code, and adapters
 asgiref==3.8.1
-# This is super old as well
+
+# dj-database-url - Use Database URLs in your Django Application
 dj-database-url==2.3.0
+
+# Django - A high-level Python web framework that encourages rapid development and clean, pragmatic design
 # Django is on v5... (because this is so old we cannot move to python 3.13 as it has removed the `cgi` package so we will eventually need to address this)
 Django==4.2.16
-# Upgraded to latest because it is a minor (which does not work on django 2.2 because of a timezone change)
-# and 2.8 does not work on python 3.11+ because of some other change in the system, at this time python 3.8 is no longer supported/available trying 3.9
+# Django CORS library (cross-origin resource sharing)
+django-cors-headers==4.5.0
+# Django CSP library (content security policy)
+# django-csp==3.8
+
+# psycopg2 - Python-PostgreSQL Database Adapter
+# TODO: We are upgraded to the latest psycopg2 library, we might want to think about a migration to psycopg3 in the near future.
 psycopg2-binary==2.9.10
-# There is pytz 2024.2 out now...
+
+# pytz - World timezone definitions, modern and historical
 pytz==2024.2
-# sqlparse is on 0.5.1
+
+# sqlparse - A non-validating SQL parser
 sqlparse==0.5.1
-# white noise latest is 6.7.0
+
+# whitenoise - Radically simplified static file serving for WSGI applications
+# TODO: Upgrade this package: latest is 6.7.0
 whitenoise==5.1.0
