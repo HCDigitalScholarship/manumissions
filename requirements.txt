@@ -16,7 +16,7 @@ dj-database-url==2.3.0
 
 # Django - A high-level Python web framework that encourages rapid development and clean, pragmatic design
 # TODO: Still need to migrate to Django v5, after that we will want to upgrade our python to 3.13 from 3.9
-Django==4.2.16
+Django==5.1.2
 # Django CORS library (cross-origin resource sharing)
 django-cors-headers==4.5.0
 # Django CSP library (content security policy)
