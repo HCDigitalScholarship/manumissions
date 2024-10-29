@@ -36,14 +36,24 @@ DEFAULT_FROM_EMAIL = "hc-special@haverford.edu"
 # XXX: Think about if we need to lock this down to particular headers or not.... for the moment I believe this is okay.
 CORS_ALLOW_HEADERS = [ '*' ]
 
-DEBUG_ORIGIN_REGEXES = [
+CORS_DEBUG_ORIGIN_REGEXES = [
     r"^https?://127\.0\.0\.1:8000",
 ] if DEBUG else [ ]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https?://(\w+\.)?haverford\.edu$",
     r"^https?://(\w+\.)?unpkg\.com$",
-    *DEBUG_ORIGIN_REGEXES,
+    *CORS_DEBUG_ORIGIN_REGEXES,
+]
+
+CSRF_DEBUG_ORIGINS = [
+    "https://127.0.0.1:8000",
+] if DEBUG else [ ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.haverford.edu",
+    "https://*.unpkg.com",
+    *CSRF_DEBUG_ORIGINS,
 ]
 
 # ================================================================================
@@ -69,9 +79,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
