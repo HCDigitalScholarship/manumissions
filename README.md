@@ -34,3 +34,9 @@ The application is hosted by an nginx web server instance running on the droplet
 The Django app is served by uWSGI which has its configuration here: `/etc/uwsgi/apps-available/manumissions.ini`.  Of note in the configuration the python virtual environment is located here: `/usr/local/lib/python-virtualenv/manumissions`.
 
 A PostgreSQL instance is deployed onto the same droplet which the application is configured to connect to for its database requirements.  Currently PostgreSQL 12.20 is deployed on the droplet.  (XXX: Would it be possible to upgrade this instance to PostgreSQL 17-latest?)
+
+
+### Maintenance Schedule
+
+Site maintenance should be scheduled for roughly every 3 months.  In addition a review should be performed in the case any zero day security vulnerabilities are discovered in the libraries and utilities used by the site.  SSL certificates for the production site should be set to renew using certbot every 90 days.
+The droplet should be scheduled for backups monthly or whenver the site undergoes a data update or maintenance schedule.  This will allow restoration of the site in case of disruption.
