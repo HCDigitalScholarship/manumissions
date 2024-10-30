@@ -127,10 +127,6 @@ DATABASES = {
         'HOST': config('MANU_DB_HOST'),
         'PORT': config('MANU_DB_PORT', cast=int)
     }
-    # 'default': {
-    #   'ENGINE': 'django.db.backends.sqlite3',
-    #   'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
 }
 
 
