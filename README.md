@@ -11,17 +11,26 @@ This project uses the following technology stack:
 
 This project is organized into a number of subdirectories containing the various parts of the project as follows:
 * `catalog` - The database models and migrations for the content stored thusly
+    - The `management` folder contains a set of scripts and csv files for ???
+    - The `migrations` folder contains the set of database migrations
+    - The `static` folder contains the static content for the catalog portion of the site
+    - The `templates` folder contains the Django templates
+        - Most of the other templates use `catalog/templates/base_generic.html` as a base
+    - The `tests` folder contains unit tests for the catalog portion of the site
 * `manumissions` - The project root, with the global settings, urls, and wsgi configuration.
 * `staticfiles` - The sites static content is served from this folder
+    - The `admin` folder contains the Django admin site
+    - The `css` folder contains the site cascading stylesheets
 * `templates` - The sites Django templates are located in this folder
+    - The `registration` folder contains templates for user auth operations on the site such as login, logout, and password reset.
 
 Other content that is stored in the root of the project:
-* `.env.example` - Sample `.env` file developers should copy and configure for their specific environment
+* `README.md` - This document
+* `DEV_SETUP.md` - Developer local setup guide
 * `manage.py` - The Django manage script
 * `requirements.txt` - The project library dependency list
+* `.env.example` - Sample `.env` file developers should copy and configure for their specific environment
 * `.gitignore` - The standard git ignore file for the project
-* `DEV_SETUP.md` - Developer local setup guide
-* `README.md` - This document
 
 ### Digital Ocean Droplet
 
@@ -33,10 +42,12 @@ The application is hosted by an nginx web server instance running on the droplet
 
 The Django app is served by uWSGI which has its configuration here: `/etc/uwsgi/apps-available/manumissions.ini`.  Of note in the configuration the python virtual environment is located here: `/usr/local/lib/python-virtualenv/manumissions`.
 
-A PostgreSQL instance is deployed onto the same droplet which the application is configured to connect to for its database requirements.  Currently PostgreSQL 12.20 is deployed on the droplet.  (XXX: Would it be possible to upgrade this instance to PostgreSQL 17-latest?)
+A PostgreSQL instance is deployed onto the same droplet which the application is configured to connect to for its database requirements.  Currently PostgreSQL 12.20 is deployed on the droplet.
+(XXX: Would it be possible to upgrade this instance to PostgreSQL 17-latest?)
 
 
 ### Maintenance Schedule
 
-Site maintenance should be scheduled for roughly every 3 months.  In addition a review should be performed in the case any zero day security vulnerabilities are discovered in the libraries and utilities used by the site.  SSL certificates for the production site should be set to renew using certbot every 90 days.
+Site maintenance should be scheduled for roughly every 3 months.  In addition a review should be performed in the case any zero day security vulnerabilities are discovered in the libraries and utilities used by the site.  This review should include all libraries in the `requirements.txt` file in addition included script libraries like jQuery (e.g. referenced in `catalog/templates/base_generic.html`) included in the templates should also be reviewed and upgraded according to this schedule.
+SSL certificates for the production site should be set to renew using certbot every 90 days.
 The droplet should be scheduled for backups monthly or whenver the site undergoes a data update or maintenance schedule.  This will allow restoration of the site in case of disruption.
