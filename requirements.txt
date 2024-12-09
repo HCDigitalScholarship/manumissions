@@ -33,5 +33,4 @@ pytz==2024.2
 sqlparse==0.5.1
 
 # whitenoise - Radically simplified static file serving for WSGI applications
-# TODO: Upgrade this package: latest is 6.7.0
-whitenoise==5.1.0
+whitenoise==6.8.2
