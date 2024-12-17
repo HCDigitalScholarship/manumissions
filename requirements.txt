@@ -1,7 +1,36 @@
-asgiref==3.2.10
-dj-database-url==0.5.0
-Django==2.2.14
-psycopg2-binary==2.8.5
-pytz==2020.1
-sqlparse==0.3.1
-whitenoise==5.1.0
+# setuptools - Easily download, build, install, upgrade, and uninstall Python packages
+# This package is added into the project as it is no longer included out of the box with later versions of python3.
+setuptools==75.2.0
+
+# python-decouple - Strict separation of settings from code
+# This was added into the project to facilitate ease of configuration using environment variables in the manumissions/settings.py.
+# This allows us to maintain the settings.py in the repository as is appropriate but keep secret keys, passwords, and other
+# environment specific configuration stored externally in a file named `.env`.
+python-decouple==3.8
+
+# asgiref - ASGI specs, helper code, and adapters
+asgiref==3.8.1
+
+# dj-database-url - Use Database URLs in your Django Application
+dj-database-url==2.3.0
+
+# Django - A high-level Python web framework that encourages rapid development and clean, pragmatic design
+# TODO: Still need to migrate to Django v5, after that we will want to upgrade our python to 3.13 from 3.9
+Django==5.1.2
+# Django CORS library (cross-origin resource sharing)
+django-cors-headers==4.5.0
+# Django CSP library (content security policy)
+# django-csp==3.8
+
+# psycopg2 - Python-PostgreSQL Database Adapter
+# TODO: We are upgraded to the latest psycopg2 library, we might want to think about a migration to psycopg3 in the near future.
+psycopg2-binary==2.9.10
+
+# pytz - World timezone definitions, modern and historical
+pytz==2024.2
+
+# sqlparse - A non-validating SQL parser
+sqlparse==0.5.1
+
+# whitenoise - Radically simplified static file serving for WSGI applications
+whitenoise==6.8.2

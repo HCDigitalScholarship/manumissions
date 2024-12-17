@@ -29,7 +29,10 @@
   <div class="row">
     <div class="col-md-12">
       <p class="text-left">
-        This website presents information found within manumission documents held by Haverford College’s Quaker & Special Collections. In the context of American Chattel Slavery, Manumission refers to both the act of enslavers freeing the people they enslaved and the legal document that records this freeing. Manumission has existed across many slave societies in different forms and approaches. Further reasons Quakers manumitted the people they enslaved can be found on the <a href="{% url 'essays' %}">Essays Page</a>. A major goal of this website is to highlight and center the stories and lives of enslaved people. At the same time, we acknowledge the shortcomings of what is available through our materials. The manumissions offer a snapshot rather than a story and must be understood as coming from the perspective of an enslaver. Enslaved people are largely listed through three data points: age, first name, and a presumed gender. Information such as whether or not they were actually manumitted, how they measured their own age, what they called themselves, and how they understood their own gender, or anything else about them as a person are not conveyed through the manumissions. What skills they possessed, their family ties, their faiths, the language(s) they spoke, their cultural practices may be found in other materials or may remain unknown to us.
+        This website presents information found within manumission documents held by Haverford College’s Quaker & Special Collections which was completed in 2020-2021. Updates to the site were made in 2024, including updating links to digitized materials and incorporating manumissions from the Friends Historical Library at Swarthmore College.
+      </p>
+      <p>
+        In the context of American Chattel Slavery, Manumission refers to both the act of enslavers freeing the people they enslaved and the legal document that records this freeing. Manumission has existed across many slave societies in different forms and approaches. Further reasons Quakers manumitted the people they enslaved can be found on the <a href="{% url 'essays' %}">Essays Page</a>. A major goal of this website is to highlight and center the stories and lives of enslaved people. At the same time, we acknowledge the shortcomings of what is available through our materials. The manumissions offer a snapshot rather than a story and must be understood as coming from the perspective of an enslaver. We are careful to understand that we have digitized and included the manumissions we know are in our collections, however we do not know the content of all our materials, so there may be unknown manumissions not included in this work. Enslaved people are largely listed through three data points: age, first name, and a presumed gender. Information such as whether or not they were actually manumitted, how they measured their own age, what they called themselves, and how they understood their own gender, or anything else about them as a person are not conveyed through the manumissions. What skills they possessed, their family ties, their faiths, the language(s) they spoke, their cultural practices may be found in other materials or may remain unknown to us.
       </p>
       <p class="text-left">
         The manumission documents in Haverford's collection include information such as the names of people listed in each manumission, their ages, their locations, their roles in the manumissions, and other dates listed. We have categorized people into 4 roles: enslaved person, signer of the manumission (slaveholder), witness to the signing of the manumission, and monthly meeting clerk. Further explanations of these categories can be found on the <a href="{% url 'glossary' %}">Glossary Page</a>. The {{ num_manumissions }} manumissions are primarily from the greater Philadelphia area, and were created between 1765 and 1790, with the bulk being between 1775 and 1780. On this website, you can find two data models: The first lists the information that can be found in each manumission itself and the second lists the information for each person found in the collection.
@@ -38,59 +41,50 @@
         The very existence of these manumissions contradicts the common story told about Quakers and slavery, which tells us that Quakers were always anti-slavery and were not enslavers. The existence of these documents shows the reality of Quaker slaveholders and Black enslaved Quakers. This strongly contradicts the typical narrative of eternal Quaker opposition to slavery. These records also reveal the range and gradualness/slowness of Delaware Valley Quaker Manumission. This range is most clear when looking at many manumissions at once. It becomes apparent in the wide range of years that manumission occurred and also in the gap between when manumission was promised (signed) and when manumission was fulfilled (legally granted). This website facilitates looking at many manumissions at once through the <a href="{% url 'persons' %}">Persons Page</a> and <a href="{% url 'manumissions' %}">Manumissions Page</a> and the <a href="{% url 'visualizations' %}">Visualizations Page</a>.
       </p>
       <hr>
-      <p class="text-center">The Website has the following record counts:</p>
-      <ul class="col-8 mx-auto">
-        <li><strong>Manumissions:</strong> {{ num_manumissions }}</li>
-        <li><strong>Roles:</strong> {{ num_roles }}</li>
-        <li><strong>Persons:</strong> {{ num_persons }}</li>
-        <li><strong>Images:</strong> {{ num_image_names }}</li>
-        <li>
-          <strong>Years Manumissions/Freedom Occurred:</strong> {{ num_year_manumitteds }}
-        </li>
-        <li><strong>Places Freed:</strong> {{ num_place_freeds }}</li>
-        <li><strong>Monthly Meetings:</strong> {{ num_monthly_meetings }}</li>
-        <li><strong>Collections:</strong> {{ num_call_numbers }}</li>
-      </ul>
-      <hr>
       <div class="col-8 mx-auto">
-        <strong>More to Explore:</strong>
+        <strong>Images and Data:</strong>
         <p>
-          To see the scanned images of the manumissions themselves, please see the
-          following links:<br />
-          <a
-            href="https://digitalcollections.tricolib.brynmawr.edu/object/hc135526#page/1/mode/1up"
-            >Blackwater Monthly Meeting Manumissions, HC.BM.B541.02.003
-            (1116/196)</a
-          ><br />
-          <a
-            href="https://digitalcollections.tricolib.brynmawr.edu/object/hc145094"
-            >Philadelphia Quarterly Meeting Manumissions, HC.PhQ.P480.07.002
-            (1250/J2.16)</a
-          ><br />
-          <a
-            href="https://digitalcollections.tricolib.brynmawr.edu/object/hc135523#page/1/mode/1up"
-            >Philadelphia Monthly Meeting Manumissions, HC.PhM.P455.04.047
-            (1250/S2.15)</a
-          ><br />
-          Evesham Manumissions, HC.PhM.E800.01.004 (1250/M3.3.1) (not yet
-          available online)<br />
-          <br />
-          (Note: The Philadelphia Monthly Meeting Manumissions contain many
-          duplicates found in the Philadelphia Quarterly Meeting Manumissions)<br />
-          <br />
-          Additionally, <a href="https://www.swarthmore.edu/friends-historical-library/manumissions-friends-historical-library">Manumissions from the Friends Historical Library can be accessed here</a>. These manumissions are not yet incorporated into the visualizations or datasets on 'Manumitted'.<br />
-          <br />
-          View and download a spreadsheet with the data we've collected from the following monthly meetings (arranged alphabetically): <a href="https://docs.google.com/spreadsheets/d/1up0zmGVDWLgVCRbgjLiEbjclNFJS53xF2eURYiHKdxQ/edit?usp=sharing">Abington, Blackwater, Exeter, Gwynedd, Haverford, Northern District, Philadelphia, Southern District</a><br />
-          More spreadsheets of data will become available as we collect more data.<br />
-          <br />
-          Please see these related sites for further exploration: 
+          A <a href="https://hc.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4bbd1597-9a33-489b-876f-adf600f2bb45" >walkthrough</a> of the site was created in 2021 by Haverford staff members, former Post-Baccalaureate
+          Fellow David Satten-Lopez and Curator of Quaker Collections Mary Crauderueff.
+        </p>
+        <strong>Images:</strong>
+        <p>
+          To see the digitized (scanned) images of the manumissions, please see the following links: Manumissions included in this project from Haverford College Quaker & Special Collections:<br />
+          <a href="https://digitalcollections.tricolib.brynmawr.edu/object/hc135526#page/1/mode/1up" >Blackwater Monthly Meeting Manumissions</a><br />
+          <a href="https://digitalcollections.tricolib.brynmawr.edu/object/hc145094" >Philadelphia Quarterly Meeting Manumissions</a><br />
+          <a href="https://digitalcollections.tricolib.brynmawr.edu/object/hc135523#page/1/mode/1up" >Monthly Meeting of Friends of Philadelphia (Arch Street Friends) Manumissions</a> (Note: The
+          Philadelphia Monthly Meeting Manumissions contain many duplicates found in the Philadelphia Quarterly Meeting Manumissions)<br />
+          Manumissions at the Haverford College Quaker & Special Collections digitized but not included in data as of 2024:<br />
+          <a href="https://digitalcollections.tricolib.brynmawr.edu/node/351950" >Reading and Exeter Monthly Meetings, Removals Issued</a><br />
+          <a href="https://digitalcollections.tricolib.brynmawr.edu/node/451395" >Evesham Monthly Meeting Manumissions</a><br />
+        </p>
+        <p>
+          Manumissions from Friends Historical Library of Swarthmore College included in this project: Please see this <a href="https://blackgenealogy.domains.swarthmore.edu/manumissions/" >blog</a> from FHL on the work they did on manumissions data and what materials were included in this project.
+        </p>
+        <strong>Data:</strong><br />
+        <p>
+          Data for this project was collected by <a href="https://haverford.box.com/v/manumitted-data" >Haverford College Quaker & Special Collections</a> and <a href="https://github.com/swat-ds/datasets/tree/main/manumissions" >Friends Historical Library of Swarthmore College</a>.
+          A data essay for this material was published in the Journal of Slavery and Data Preservation:
+          <a href="https://jsdp.enslaved.org/fullDataArticle/volume5-issue3-quaker-manumissions-in-the-northeast-and-midatlantic/" >Martinez, Zahara, and Celia Caust-Ellenbogen. "Quaker Manumissions in the American Northeast and Mid-Atlantic, 1759-1805." Journal of Slavery and Data Preservation 5, no. 3 (2024): 65-71</a>
+        </p>
+        <p>
+          <strong>Further Resources:</strong><br />
+          <i>About Quakers and enslavement:</i><br />
           <ul>
-          <li><a href="https://enslaved.org/">Enslaved: Peoples of the Historical Slave Trade</a></li>
-          <li><a href="https://repository.upenn.edu/mead/46/">A Just and True Return: A Dataset of Pennsylvania's Surviving County Slave Registries</a></li>
+            <li>Philadelphia Yearly Meeting of the Religious Society of Friends. [from old catalog], Joseph Meredith Toner Collection (Library of Congress), and African American Pamphlet Collection (Library of Congress). <u>A Brief Statement of the Rise And Progress of the Testimony of the Religious Society of Friends, Against Slavery And the Slave Trade.</u> Philadelphia: Printed by J. and W. Kite, 1843. Available freely on <a href="https://catalog.hathitrust.org/Record/009582608/Home" >HathiTrust</a>.</li>
+            <li><a href="https://tripod.haverford.edu/permalink/01TRI_INST/14s7maf/alma991002719269704921" >Fit for freedom, not for friendship : Quakers, African Americans, and the myth of racial justice</a></li>
+            <li>Gerbner, Katharine. <a href="https://tripod.haverford.edu/permalink/01TRI_INST/14s7maf/alma991019076186904921" >Christian Slavery: Conversion and Race in the Protestant Atlantic World.</a> University of Pennsylvania Press, 2018.</li>
+            <li>Soderlund, Jean R. <a href="https://tripod.haverford.edu/permalink/01TRI_INST/14s7maf/alma991003807899704921" >Quakers & Slavery: a Divided Spirit.</a> Princeton University Press, 1985.</li>
+            <li>Jackson, Maurice, and Sue Kozel, eds. <a href="https://tripod.haverford.edu/permalink/01TRI_INST/14s7maf/alma991010846049704921" >Quakers and Their Allies in the Abolitionist Cause, 1754-1808.</a> Abingdon, Oxon ; Routledge, 2015.</li>
+            <li>Carey, B., & Plank, G. G. (Eds.). (2014). <a href="https://tripod.haverford.edu/permalink/01TRI_INST/14s7maf/alma991008912339704921" >Quakers and abolition.</a> University of Illinois Press.</li>
+            <li>Kershner, J. R. (2018). <a href="https://tripod.haverford.edu/permalink/01TRI_INST/14s7maf/alma991014156069704921">“To renew the covenant” : religious themes in eighteenth-century Quaker abolitionism.</a> Brill.</li>
+            <li>Digital scholarship project: <a href="https://web.tricolib.brynmawr.edu/speccoll/quakersandslavery/" >Quakers & Slavery</a></li>
           </ul>
-          <br />
-          Feedback? Please email us at hc-special@haverford.edu or <a href="https://forms.gle/kApNXRp3aHLX8bCK8">fill out our online survey here</a>.
-          <br />
+          <i>Data projects on enslavement and the slave trade in the United States:</i>
+          <ul>
+            <li><a href="https://enslaved.org/" >Enslaved: Peoples of the Historical Slave Trade</a></li>
+            <li><a href="https://repository.upenn.edu/mead/46/" >A Just and True Return: A Dataset of Pennsylvania's Surviving County Slave Registries</a></li>
+          </ul>
         </p>
       </div>
     </div>

@@ -38,8 +38,8 @@
                     <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" >Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'manumissions' %}" >All Manumissions</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'persons' %}" >All Persons</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'allmanumitted' %}" >All Manumitted</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'allslaveholders' %}" >All Slaveholders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'allmanumitted' %}" >Manumitted by Meeting</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'allslaveholders' %}" >Slaveholders by Meeting</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'visualizations' %}" >Visualizations</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'glossary' %}" >Glossary</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" >About</a></li>
@@ -90,14 +90,7 @@
           <li style="list-style-type: none;"><a href="http://library.haverford.edu">Haverford College Libaries</a></li>
           <li style="list-style-type: none;">370 Lancaster Avenue</li>
           <li style="list-style-type: none;">Haverford, PA 19041</li>
-        </ul>
-      </div>
-      <div class="col">
-        <ul>
-          <li style="list-style-type: none;">Questions? Comments?</li>
-          <li style="list-style-type: none;">Want a Paper Copy of This Website?</li>
-          <li style="list-style-type: none;">Please contact us at</li>
-          <li style="list-style-type: none;">hc-special@haverford.edu</li>
+          <li style="list-style-type: none;"><a href="mailto:hc-special@haverford.edu" >hc-special@haverford.edu</a></li>
         </ul>
       </div>
       <div class="col"></div>
@@ -122,8 +115,8 @@
     </div>
 </div>
 </footer>
-<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js" crossorigin="anonymous" ></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" ></script>
 <script>
   $(function() {
     $('.navbar-toggler-icon').click(function() {

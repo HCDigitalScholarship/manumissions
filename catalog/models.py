@@ -34,9 +34,9 @@ class Person(models.Model):
     birth_place = models.ForeignKey('Birth_Place', on_delete=models.SET_NULL, null=True, blank=True)
     death_place = models.ForeignKey('Death_Place', on_delete=models.SET_NULL, null=True, blank=True)
     place_freed= models.ForeignKey('Place_Freed', on_delete=models.SET_NULL, null=True)
-    age_freed= models.CharField('Age_Freed', max_length=5, help_text='Age when freedom occured', blank=True)
-    age_listed= models.CharField('Age_Listed', max_length=5, help_text='Age listed on the Manumission Document', blank=True)
-    year_manumitted= models.CharField('Year Manumission took effect', max_length=4, help_text='Year when freedom occured', blank=True)
+    age_freed= models.CharField('Age_Freed', max_length=30, help_text='Age when freedom occured', blank=True)
+    age_listed= models.CharField('Age_Listed', max_length=30, help_text='Age listed on the Manumission Document', blank=True)
+    year_manumitted= models.CharField('Year Manumission took effect', max_length=10, help_text='Year when freedom occured', blank=True)
 
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField(null=True, blank=True)

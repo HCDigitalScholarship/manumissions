@@ -1,6 +1,7 @@
-manumissions/settings.py 
 catalog/migrations/
-catalog/__pycache__
+__pycache__
 *.pyc
 .vscode
+venv*
 db.sqlite3
+.env
